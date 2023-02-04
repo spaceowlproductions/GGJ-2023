@@ -13,7 +13,9 @@ public class MonsterController : MonoBehaviour
     Transform playerTrans;
 
     public float health;
-    
+
+    public AudioSource audioSource;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
@@ -45,6 +47,9 @@ public class MonsterController : MonoBehaviour
         projectile.GetComponent<Projectile>().Fire(3f, playerPos);
 
         StartCoroutine(AttackWait());
+
+        audioSource.clip = AudioController.attackClips[Random.Range(0, AudioController.attackClips.Length)];
+        audioSource.Play();
     }
 
     public IEnumerator AttackWait()

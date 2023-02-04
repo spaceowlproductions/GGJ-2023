@@ -11,6 +11,8 @@ public class Projectile : MonoBehaviour
 
     public float lifeTime;
 
+    public AudioSource audioSource;
+
     // Update is called once per frame
     void Update()
     {
@@ -41,6 +43,19 @@ public class Projectile : MonoBehaviour
 
     public void BulletHit()
     {
+        audioSource.clip = AudioController.deathClips[Random.Range(0, AudioController.deathClips.Length)];
+        audioSource.Play();
+
+        StartCoroutine(DestroyWait());
+    }
+
+    IEnumerator DestroyWait()
+    {
+        while(audioSource.isPlaying)
+        {
+            yield return null;
+        }
+
         Destroy(gameObject);
     }
 
