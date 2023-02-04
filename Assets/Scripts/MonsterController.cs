@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    bool playerNearby;
+    public bool playerNearby;
 
     public GameObject projectilePrefab;
 
@@ -46,7 +46,7 @@ public class MonsterController : MonoBehaviour
         StartCoroutine(AttackWait());
     }
 
-    IEnumerator AttackWait()
+    public IEnumerator AttackWait()
     {
         yield return new WaitForSeconds(attackCooldown);
 
