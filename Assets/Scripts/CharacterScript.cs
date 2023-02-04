@@ -9,6 +9,7 @@ public class CharacterScript : MonoBehaviour
     private Animator animator;
     private float xDir = 0f;
     private SpriteRenderer sprite;
+    public BoxCollider2D WeaponCol;
     // private static Timer myTimer;
 
     // Start is called before the first frame update
@@ -41,6 +42,15 @@ public class CharacterScript : MonoBehaviour
         }
 
         UpdateAnimation();
+    }
+
+    public void CanParry()
+    {
+
+    }
+    public void CannotParry()
+    {
+
     }
     private void UpdateAnimation()
     {
