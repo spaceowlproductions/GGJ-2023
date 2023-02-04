@@ -20,6 +20,8 @@ public class RootHub : MonoBehaviour
     public Animator uiAnim;
     public Image infectionHealBar;
 
+    public Animator healUIAnim;
+
 
     void Update()
     {
@@ -36,7 +38,9 @@ public class RootHub : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.E))
             {
                 if(infected)
-                    StopCoroutine(healRoutine);
+                {
+                    StopHealingProcess();
+                }
             }
         }
     }
@@ -69,16 +73,27 @@ public class RootHub : MonoBehaviour
         }
     }
 
-    public void InterruptHeal()
+    public void StopHealingProcess()
     {
-        if(healRoutine != null)
+        healUIAnim.SetBool("Healing", false);
+
+        if (healRoutine != null)
             StopCoroutine(healRoutine);
 
         infectionHealBar.fillAmount = 1f;
     }
 
+    void RootHealingFinished()
+    {
+        infected = false;
+
+        healUIAnim.SetBool("Healing", false);
+        uiAnim.SetBool("PlayerHeal", true);
+    }
+
     IEnumerator HealRootSequence()
     {
+        healUIAnim.SetBool("Healing", true);
         float elapsedTime = 0f;
 
         while(elapsedTime < healHoldTimer)
@@ -90,7 +105,7 @@ public class RootHub : MonoBehaviour
             yield return null;
         }
 
-        infected = false;
+        RootHealingFinished();
 
         yield break;
     }
