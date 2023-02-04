@@ -9,8 +9,10 @@ public class CharacterScript : MonoBehaviour
     private Animator animator;
     private float xDir = 0f;
     private SpriteRenderer sprite;
-    public BoxCollider2D WeaponCol;
-    // private static Timer myTimer;
+    public GameObject weapon;
+    private BoxCollider2D WeaponCol;
+    private float rightOffset = 0.6771092f;
+    private float leftOffset = -0.6771092f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +20,7 @@ public class CharacterScript : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        // myTimer = new Timer(2000);
+        WeaponCol = weapon.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -44,14 +46,6 @@ public class CharacterScript : MonoBehaviour
         UpdateAnimation();
     }
 
-    public void CanParry()
-    {
-
-    }
-    public void CannotParry()
-    {
-
-    }
     private void UpdateAnimation()
     {
         // Walking
@@ -59,11 +53,13 @@ public class CharacterScript : MonoBehaviour
         {
             sprite.flipX = true;
             animator.SetBool("IsWalking", true);
+            WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
         }
         else if (xDir < 0f) // Walking left
         {
             sprite.flipX = false;
             animator.SetBool("IsWalking", true);
+            WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
         }
         else // Idle
         {
