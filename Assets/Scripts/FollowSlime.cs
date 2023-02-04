@@ -11,6 +11,11 @@ public class FollowSlime : MonsterController
 
     public override void Attack(Vector3 playerPos)
     {
+        if (!playerNearby) { return; }
+
         rb2D.velocity = (playerPos - transform.position) * jumpVelocity;
+
+        StartCoroutine(AttackWait());
+
     }
 }

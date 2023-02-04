@@ -182,10 +182,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f73a5867d5af54f9dba940f527514704, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerNearby: 0
   projectilePrefab: {fileID: 0}
   attackCooldown: 4
   health: 20
-  jumpVelocity: 2
+  jumpVelocity: 7
   rb2D: {fileID: 4063954714720753964}
 --- !u!1 &4063954715123120251
 GameObject:
