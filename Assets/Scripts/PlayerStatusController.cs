@@ -24,7 +24,7 @@ public class PlayerStatusController : MonoBehaviour
     {
         health -= damage;
         if (currentHub != null)
-            currentHub.InterruptHeal();
+            currentHub.StopHealingProcess();
 
         uiAnim.SetBool("Open", true);
 
