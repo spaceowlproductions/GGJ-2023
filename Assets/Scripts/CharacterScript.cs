@@ -30,7 +30,7 @@ public class CharacterScript : MonoBehaviour
         // Jumping
         if (Input.GetButtonDown("Jump"))
         {
-            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 10f);
+            rigidbody.velocity = new Vector2(rigidbody.velocity.x, 12f);
             // animator.SetBool("IsJumping", true);
             // Use Raycast to determine when to set IsJumping to true and false
         }
