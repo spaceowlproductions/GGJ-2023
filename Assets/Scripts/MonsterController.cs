@@ -36,7 +36,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    public void Attack(Vector3 playerPos)
+    public virtual void Attack(Vector3 playerPos)
     {
         if (!playerNearby) { return; }
 
