@@ -41,6 +41,7 @@ public class MonsterController : MonoBehaviour
         if (!playerNearby) { return; }
 
         GameObject projectile = Instantiate(projectilePrefab);
+        projectile.transform.position = transform.position;
         projectile.GetComponent<Projectile>().Fire(3f, playerPos);
 
         StartCoroutine(AttackWait());
