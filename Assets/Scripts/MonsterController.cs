@@ -16,10 +16,10 @@ public class MonsterController : MonoBehaviour
     
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Player nearby.");
-            if(playerTrans == null)
+            if (playerTrans == null)
                 playerTrans = collision.transform;
 
             playerNearby = true;
