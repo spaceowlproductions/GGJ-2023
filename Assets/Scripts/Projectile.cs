@@ -33,4 +33,15 @@ public class Projectile : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void Parry()
+    {
+        BulletHit();
+    }
+
+    public void BulletHit()
+    {
+        Destroy(gameObject);
+    }
+
 }
