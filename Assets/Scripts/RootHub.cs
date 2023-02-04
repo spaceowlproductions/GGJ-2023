@@ -88,6 +88,7 @@ public class RootHub : MonoBehaviour
         infected = false;
 
         healUIAnim.SetBool("Healing", false);
+        uiAnim.SetBool("Open", false);
         uiAnim.SetBool("PlayerHeal", true);
     }
 
