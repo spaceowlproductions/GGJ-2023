@@ -771,6 +771,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 68542252332177940, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3207957915361746016, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4206264156272894227, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5151772782581363940, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
       propertyPath: m_Name
       value: Monster
@@ -818,6 +830,18 @@ PrefabInstance:
     - target: {fileID: 5151772782581363942, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8019030717784705097, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067301594926658063, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516053428516053074, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
+      propertyPath: m_SortingOrder
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
