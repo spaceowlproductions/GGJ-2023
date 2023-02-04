@@ -35,6 +35,11 @@ public class CharacterScript : MonoBehaviour
             // Use Raycast to determine when to set IsJumping to true and false
         }
 
+        if (Input.GetMouseButtonDown(0)) // Attacking
+        {
+            animator.SetTrigger("Attacking");
+        }
+
         UpdateAnimation();
     }
     private void UpdateAnimation()
