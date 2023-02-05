@@ -1757,6 +1757,7 @@ MonoBehaviour:
   uiAnim: {fileID: 6524166848027238748}
   healthBar: {fileID: 619937145849975224}
   audioSource: {fileID: 1250589669767126834}
+  damage: 8
 --- !u!58 &1383379653233958273
 CircleCollider2D:
   m_ObjectHideFlags: 0

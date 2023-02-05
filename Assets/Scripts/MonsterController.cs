@@ -16,7 +16,9 @@ public class MonsterController : MonoBehaviour
 
     public AudioSource audioSource;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float throwVelocity;
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
@@ -44,7 +46,7 @@ public class MonsterController : MonoBehaviour
 
         GameObject projectile = Instantiate(projectilePrefab);
         projectile.transform.position = transform.position;
-        projectile.GetComponent<Projectile>().Fire(3f, playerPos);
+        projectile.GetComponent<Projectile>().Fire(throwVelocity, playerPos);
 
         StartCoroutine(AttackWait());
 

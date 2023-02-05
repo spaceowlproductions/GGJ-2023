@@ -15,6 +15,8 @@ public class PlayerStatusController : MonoBehaviour
     Coroutine healthUITimeout;
     public Image healthBar;
 
+    bool dead;
+
     void Awake()
     {
         fullHealth = health;
@@ -22,9 +24,17 @@ public class PlayerStatusController : MonoBehaviour
 
     public void Hit(float damage)
     {
+        if (dead) { return; }
+
         health -= damage;
+
         if (currentHub != null)
             currentHub.StopHealingProcess();
+
+        if(health <= 0)
+        {
+            Die();
+        }
 
         uiAnim.SetBool("Open", true);
 
@@ -36,8 +46,19 @@ public class PlayerStatusController : MonoBehaviour
         healthBar.fillAmount = health / fullHealth;
     }
 
+    public void Die()
+    {
+        //GameStateController.ActivateDeathScreen();
+        GetComponent<AudioSource>().PlayOneShot(AudioController.playerDeath[0]);
+        dead = true;
+        //Insert death stuff here!
+
+    }
+
     public void Heal()
     {
+        dead = false;
+
         uiAnim.SetBool("Open", true);
 
         if (healthUITimeout != null)

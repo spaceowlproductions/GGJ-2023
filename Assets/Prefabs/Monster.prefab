@@ -631,6 +631,7 @@ MonoBehaviour:
   uiAnim: {fileID: 466401416105608493}
   healthBar: {fileID: 6082383150221686217}
   audioSource: {fileID: 1446148947599151499}
+  damage: 0
 --- !u!1 &5151772782581363940
 GameObject:
   m_ObjectHideFlags: 0
@@ -737,6 +738,7 @@ MonoBehaviour:
   attackCooldown: 3
   health: 20
   audioSource: {fileID: 1446148947599151499}
+  throwVelocity: 1
 --- !u!58 &5151772782581363944
 CircleCollider2D:
   m_ObjectHideFlags: 0
