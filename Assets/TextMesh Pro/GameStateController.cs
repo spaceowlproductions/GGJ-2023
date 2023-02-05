@@ -20,12 +20,6 @@ public class GameStateController : MonoBehaviour
         WinScreen = winScreen;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void ActivateDeathScreen()
     {
         DeathScreen.SetActive(true);
