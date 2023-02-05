@@ -23,7 +23,7 @@ public class GameStateController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ActivateDeathScreen()
@@ -44,7 +44,7 @@ public class GameStateController : MonoBehaviour
             SceneManager.LoadScene(0);
         else
         {
-            player.transform.localPosition = lastSaveSpot.localPosition;
+            player.transform.parent.position = lastSaveSpot.position;
             player.Heal();
         }
     }
