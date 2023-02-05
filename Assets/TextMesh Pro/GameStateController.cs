@@ -37,6 +37,7 @@ public class GameStateController : MonoBehaviour
 
     public IEnumerator WinWait()
     {
+        MusicController.Stop();
         MusicController.PlayOneShot(AudioController.music[1]);
         yield return new WaitForSeconds(33);
 
