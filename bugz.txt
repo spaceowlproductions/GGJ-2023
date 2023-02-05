@@ -1,0 +1,3 @@
+Bugz
+    -When reloading from a root hub, no animations play
+    -Mainloop music plays over game ending music
