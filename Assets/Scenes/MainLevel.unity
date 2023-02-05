@@ -12804,7 +12804,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a3fcea73b023b4f78bac4a823a247e02, type: 3}
   - {fileID: 8300000, guid: 03a2e1c5876f347b38bb72724b1be30d, type: 3}
   - {fileID: 8300000, guid: 4f4550b7237d7444789b4f8e21e52fdf, type: 3}
-  LungeClips: []
   PlayerFootsteps:
   - {fileID: 8300000, guid: 131766a7143fc447abefe8beb60e3089, type: 3}
   - {fileID: 8300000, guid: bd602737f6ad34fffae6598f11c89ff7, type: 3}
@@ -12819,12 +12818,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ddd60be086621456e937127e2f0eea2d, type: 3}
   PlayerDeath:
   - {fileID: 8300000, guid: 97ee9f436a7014fc0a3844c1b5462144, type: 3}
-  DamagedTreeLoop: []
-  RootRepair: []
-  RootRepairComplete: []
-  Heal: []
-  Ambience: []
-  Music: []
 --- !u!1 &996080045
 GameObject:
   m_ObjectHideFlags: 0
@@ -41601,10 +41594,6 @@ PrefabInstance:
     - target: {fileID: 5197696266132715521, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: m_LocalPosition.y
       value: 31
-      objectReference: {fileID: 0}
-    - target: {fileID: 5197696266132715522, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
-      propertyPath: dashSpeed
-      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5197696266394085338, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: gameController
