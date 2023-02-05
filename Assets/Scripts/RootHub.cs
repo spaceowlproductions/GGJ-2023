@@ -30,6 +30,8 @@ public class RootHub : MonoBehaviour
 
     public bool finalHub;
 
+    public AudioSource audioSource;
+
     void Update()
     {
         if(playerNear)
@@ -94,12 +96,17 @@ public class RootHub : MonoBehaviour
         if (healRoutine != null)
             StopCoroutine(healRoutine);
 
+        audioSource.Stop();
+
         infectionHealBar.fillAmount = 1f;
     }
 
     void RootHealingFinished()
     {
         infected = false;
+
+        audioSource.clip = AudioController.rootRepairComplete[0];
+        audioSource.Play();
 
         healUIAnim.SetBool("Healing", false);
         uiAnim.SetBool("Open", false);
@@ -115,6 +122,9 @@ public class RootHub : MonoBehaviour
 
     IEnumerator HealRootSequence()
     {
+        audioSource.clip = AudioController.rootRepair[0];
+        audioSource.Play();
+
         healUIAnim.SetBool("Healing", true);
         float elapsedTime = 0f;
 
