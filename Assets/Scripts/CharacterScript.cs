@@ -14,6 +14,8 @@ public class CharacterScript : MonoBehaviour
     private float rightOffset = 0.6771092f;
     private float leftOffset = -0.6771092f;
 
+    public AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,5 +67,21 @@ public class CharacterScript : MonoBehaviour
         {
             animator.SetBool("IsWalking", false);
         }
+    }
+    public void PlayFootstepSound()
+    {
+        audioSource.clip = AudioController.playerFootsteps[Random.Range(0,AudioController.playerFootsteps.Length)];
+    }
+    public void PlayAttackSound()
+    {
+        audioSource.clip = AudioController.playerAttack[Random.Range(0, AudioController.playerAttack.Length)];
+    }
+    public void PlayHurtSound()
+    {
+        audioSource.clip = AudioController.playerHurt[Random.Range(0, AudioController.playerHurt.Length)];
+    }
+    public void PlayDeathSound()
+    {
+        audioSource.clip = AudioController.playerDeath[Random.Range(0, AudioController.playerDeath.Length)];
     }
 }
