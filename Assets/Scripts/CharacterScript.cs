@@ -8,16 +8,18 @@ public class CharacterScript : MonoBehaviour
     private Rigidbody2D rigidbody;
     private Animator animator;
     private SpriteRenderer sprite;
-    private BoxCollider2D WeaponCol;
+    private BoxCollider2D PlayerColl;
+    [SerializeField] private LayerMask jumpableTerrain;
     
     public PlayerStatusController playerStatusController;
+    
     public GameObject weapon;
+    private BoxCollider2D WeaponCol;
 
     private float xDir = 0f;
     private float rightOffset = 0.6771092f;
     private float leftOffset = -0.6771092f;
     private bool isDead;
-    private bool isGrounded;
 
     public AudioSource audioSource;
 
@@ -28,6 +30,7 @@ public class CharacterScript : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         WeaponCol = weapon.GetComponent<BoxCollider2D>();
+        PlayerColl = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -48,11 +51,9 @@ public class CharacterScript : MonoBehaviour
         rigidbody.velocity = new Vector2(xDir * 5f, rigidbody.velocity.y);
 
         // Jumping
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && isGrounded())
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, 12f);
-            // animator.SetBool("IsJumping", true);
-            // Use Raycast to determine when to set IsJumping to true and false
         }
 
         // Attacking
@@ -70,27 +71,36 @@ public class CharacterScript : MonoBehaviour
         if (xDir > 0f) // Walking right
         {
             sprite.flipX = true;
-            if (!isGrounded)
+            if (!isGrounded())
             {
                 animator.SetBool("IsWalking", false);
+            } else
+            {
+                animator.SetBool("IsWalking", true);
             }
-            animator.SetBool("IsWalking", true);
             WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
         }
         else if (xDir < 0f) // Walking left
         {
             sprite.flipX = false;
-            if (!isGrounded)
+            if (!isGrounded())
             {
                 animator.SetBool("IsWalking", false);
+            } else
+            {
+                animator.SetBool("IsWalking", true);
             }
-            animator.SetBool("IsWalking", true);
             WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
         }
         else // Idle
         {
             animator.SetBool("IsWalking", false);
         }
+    }
+
+    private bool isGrounded()
+    {
+        return Physics2D.BoxCast(PlayerColl.bounds.center, PlayerColl.bounds.size, 0f, Vector2.down, 0.1f, jumpableTerrain);
     }
 
     public void PlayFootstepSound()
