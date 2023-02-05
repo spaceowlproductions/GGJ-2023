@@ -13,11 +13,15 @@ public class GameStateController : MonoBehaviour
     public GameObject winScreen;
     public static GameObject WinScreen;
 
+    public AudioSource musicController;
+    public static AudioSource MusicController;
+
     // Start is called before the first frame update
     void Awake()
     {
         DeathScreen = deathScreen;
         WinScreen = winScreen;
+        MusicController = musicController;
     }
 
     public void ActivateDeathScreen()
@@ -33,7 +37,8 @@ public class GameStateController : MonoBehaviour
 
     public IEnumerator WinWait()
     {
-        yield return new WaitForSeconds(3);
+        MusicController.PlayOneShot(AudioController.music[1]);
+        yield return new WaitForSeconds(33);
 
         SceneManager.LoadScene(0);
     }

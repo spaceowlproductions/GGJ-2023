@@ -3543,6 +3543,7 @@ MonoBehaviour:
   lastSaveSpot: {fileID: 0}
   deathScreen: {fileID: 2014989640}
   winScreen: {fileID: 1076922925}
+  musicController: {fileID: 549236835}
 --- !u!4 &585055278
 Transform:
   m_ObjectHideFlags: 0
@@ -40295,6 +40296,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2104759690057427772, guid: b1d7271c8e7124a0b8bd7f5e211b1141, type: 3}
+      propertyPath: Music.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104759690057427772, guid: b1d7271c8e7124a0b8bd7f5e211b1141, type: 3}
+      propertyPath: Music.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 21afdf3da962f436aa8cd96a5552704f, type: 3}
+    - target: {fileID: 2104759690057427772, guid: b1d7271c8e7124a0b8bd7f5e211b1141, type: 3}
+      propertyPath: Music.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 93b9fe69536354cdeb72cf4d264e9507, type: 3}
     - target: {fileID: 2104759690057427774, guid: b1d7271c8e7124a0b8bd7f5e211b1141, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -41905,11 +41918,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5197696266132715521, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.9
+      value: -71
       objectReference: {fileID: 0}
     - target: {fileID: 5197696266132715521, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 31
+      value: 30.9
       objectReference: {fileID: 0}
     - target: {fileID: 5197696266132715522, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: dashSpeed
