@@ -1,0 +1,3 @@
+Bugz
+    -If the player dies while running, the running animation keeps playing until the game resets
+    -When reloading from a root hub, no animations play
