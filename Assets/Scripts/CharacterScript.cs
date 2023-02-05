@@ -78,8 +78,6 @@ public class CharacterScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attacking");
-            if (!isGrounded())
-                Dash();
         }
 
         UpdateAnimation();
