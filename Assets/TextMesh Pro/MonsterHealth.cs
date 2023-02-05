@@ -17,6 +17,8 @@ public class MonsterHealth : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public float damage;
+
     private void Awake()
     {
         fullHealth = health;
@@ -50,6 +52,12 @@ public class MonsterHealth : MonoBehaviour
             healthBar.fillAmount = health / fullHealth;
 
         }
+
+        if (collision.tag == "PlayerHealth")
+        {
+            collision.gameObject.GetComponent<PlayerStatusController>().Hit(damage);
+        }
+
     }
 
     public void Die()

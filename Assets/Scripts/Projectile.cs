@@ -24,15 +24,20 @@ public class Projectile : MonoBehaviour
 
     public void Fire(float speed, Vector3 target)
     {
-        rb2D.velocity = (target - transform.position) * 3;
+        rb2D.velocity = (target - transform.position) * speed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if(collision.tag == "PlayerHealth")
         {
             collision.gameObject.GetComponent<PlayerStatusController>().Hit(damage);
             Destroy(gameObject);
+        }
+
+        if(collision.tag == "Weapon")
+        {
+            Parry();
         }
     }
 
@@ -46,17 +51,6 @@ public class Projectile : MonoBehaviour
         audioSource.clip = AudioController.deathClips[Random.Range(0, AudioController.deathClips.Length)];
         audioSource.Play();
 
-        StartCoroutine(DestroyWait());
-    }
-
-    IEnumerator DestroyWait()
-    {
-        while(audioSource.isPlaying)
-        {
-            yield return null;
-        }
-
         Destroy(gameObject);
     }
-
 }
