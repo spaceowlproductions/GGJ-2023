@@ -28,6 +28,7 @@ public class RootHub : MonoBehaviour
 
     public SpriteRenderer sickness;
 
+    public bool finalHub;
 
     void Update()
     {
@@ -105,6 +106,11 @@ public class RootHub : MonoBehaviour
         uiAnim.SetBool("PlayerHeal", true);
 
         gameController.lastSaveSpot = transform;
+
+        if(finalHub)
+        {
+            gameController.ActivateWinScreen();
+        }
     }
 
     IEnumerator HealRootSequence()

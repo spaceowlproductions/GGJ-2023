@@ -28,7 +28,16 @@ public class GameStateController : MonoBehaviour
     public void ActivateWinScreen()
     {
         WinScreen.SetActive(true);
+        StartCoroutine(WinWait());
     }
+
+    public IEnumerator WinWait()
+    {
+        yield return new WaitForSeconds(3);
+
+        SceneManager.LoadScene(0);
+    }
+
 
     public IEnumerator RestartWait(PlayerStatusController player)
     {
