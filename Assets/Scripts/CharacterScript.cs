@@ -19,7 +19,7 @@ public class CharacterScript : MonoBehaviour
     private float xDir = 0f;
     private float rightOffset = 0.6771092f;
     private float leftOffset = -0.6771092f;
-    private bool isDead;
+    private bool running;
 
     public AudioSource audioSource;
 
@@ -31,6 +31,8 @@ public class CharacterScript : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         WeaponCol = weapon.GetComponent<BoxCollider2D>();
         PlayerColl = GetComponent<BoxCollider2D>();
+
+        running = false;
     }
 
     // Update is called once per frame
@@ -48,7 +50,19 @@ public class CharacterScript : MonoBehaviour
     {
         // Horizontal movement
         xDir = Input.GetAxisRaw("Horizontal");
-        rigidbody.velocity = new Vector2(xDir * 5f, rigidbody.velocity.y);
+        
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) // Running
+        {
+            if (isGrounded())
+            {
+                rigidbody.velocity = new Vector2(xDir * 10f, rigidbody.velocity.y);
+                running = true;
+            }
+        } else // Walking
+        {
+            rigidbody.velocity = new Vector2(xDir * 5f, rigidbody.velocity.y);
+            running = false;
+        }
 
         // Jumping
         if (Input.GetButtonDown("Jump") && isGrounded())
@@ -68,7 +82,7 @@ public class CharacterScript : MonoBehaviour
     private void UpdateAnimation()
     {
         // Walking
-        if (xDir > 0f) // Walking right
+        if (xDir > 0f && !running) // Walking right
         {
             sprite.flipX = true;
             if (!isGrounded())
@@ -80,7 +94,7 @@ public class CharacterScript : MonoBehaviour
             }
             WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
         }
-        else if (xDir < 0f) // Walking left
+        else if (xDir < 0f && !running) // Walking left
         {
             sprite.flipX = false;
             if (!isGrounded())
@@ -91,10 +105,39 @@ public class CharacterScript : MonoBehaviour
                 animator.SetBool("IsWalking", true);
             }
             WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
+        } else if (xDir > 0f && running) // Run right
+        {
+            sprite.flipX = true;
+            if (!isGrounded())
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsRunning", false);
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsRunning", true);
+            }
+            WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
+        } else if (xDir < 0f && running) // Run left
+        {
+            sprite.flipX = false;
+            if (!isGrounded())
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsRunning", false);
+            }
+            else
+            {
+                animator.SetBool("IsWalking", false);
+                animator.SetBool("IsRunning", true);
+            }
+            WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
         }
         else // Idle
         {
             animator.SetBool("IsWalking", false);
+            animator.SetBool("IsRunning", false);
         }
     }
 
