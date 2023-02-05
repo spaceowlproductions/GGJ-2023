@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    bool playerNearby;
+    public bool playerNearby;
 
     public GameObject projectilePrefab;
 
@@ -13,13 +13,17 @@ public class MonsterController : MonoBehaviour
     Transform playerTrans;
 
     public float health;
-    
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public AudioSource audioSource;
+
+    public float throwVelocity;
+
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.tag == "Player")
+        if (collision.gameObject.tag == "Player")
         {
             Debug.Log("Player nearby.");
-            if(playerTrans == null)
+            if (playerTrans == null)
                 playerTrans = collision.transform;
 
             playerNearby = true;
@@ -41,12 +45,16 @@ public class MonsterController : MonoBehaviour
         if (!playerNearby) { return; }
 
         GameObject projectile = Instantiate(projectilePrefab);
-        projectile.GetComponent<Projectile>().Fire(3f, playerPos);
+        projectile.transform.position = transform.position;
+        projectile.GetComponent<Projectile>().Fire(throwVelocity, playerPos);
 
         StartCoroutine(AttackWait());
+
+        audioSource.clip = AudioController.attackClips[Random.Range(0, AudioController.attackClips.Length)];
+        audioSource.Play();
     }
 
-    IEnumerator AttackWait()
+    public IEnumerator AttackWait()
     {
         yield return new WaitForSeconds(attackCooldown);
 

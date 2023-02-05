@@ -52,7 +52,7 @@ public class RootHub : MonoBehaviour
             playerNear = true;
 
             if (playerStatusController == null)
-                playerStatusController = collision.GetComponent<PlayerStatusController>();
+                playerStatusController = collision.GetComponentInChildren<PlayerStatusController>();
 
             playerStatusController.currentHub = this;
 
@@ -88,6 +88,7 @@ public class RootHub : MonoBehaviour
         infected = false;
 
         healUIAnim.SetBool("Healing", false);
+        uiAnim.SetBool("Open", false);
         uiAnim.SetBool("PlayerHeal", true);
     }
 

@@ -11,6 +11,14 @@ public class FollowSlime : MonsterController
 
     public override void Attack(Vector3 playerPos)
     {
+        if (!playerNearby) { return; }
+
         rb2D.velocity = (playerPos - transform.position) * jumpVelocity;
+
+        audioSource.clip = AudioController.moveClips[Random.Range(0, AudioController.moveClips.Length)];
+        audioSource.Play();
+
+        StartCoroutine(AttackWait());
+
     }
 }
