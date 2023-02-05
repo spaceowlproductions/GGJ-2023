@@ -68,6 +68,8 @@ public class PlayerStatusController : MonoBehaviour
     {
         dead = false;
 
+        GetComponentInParent<AudioSource>().PlayOneShot(AudioController.heal[0]);
+
         uiAnim.SetBool("Open", true);
 
         if (healthUITimeout != null)
