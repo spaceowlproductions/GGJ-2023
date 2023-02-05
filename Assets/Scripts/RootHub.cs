@@ -79,7 +79,7 @@ public class RootHub : MonoBehaviour
         if (collision.tag == "Player")
         {
             playerNear = false;
-            collision.GetComponent<PlayerStatusController>().currentHub = null;
+            collision.GetComponentInChildren<PlayerStatusController>().currentHub = null;
 
             if(infected)
                 uiAnim.SetBool("Open", false);
