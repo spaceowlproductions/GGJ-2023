@@ -23,6 +23,9 @@ public class CharacterScript : MonoBehaviour
 
     public AudioSource audioSource;
 
+    public float dashSpeed;
+    bool isDashing;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -74,9 +77,37 @@ public class CharacterScript : MonoBehaviour
         if (Input.GetMouseButtonDown(0)) 
         {
             animator.SetTrigger("Attacking");
+            if(!isGrounded())
+                Dash();
         }
 
         UpdateAnimation();
+    }
+
+    public void Dash()
+    {
+        playerStatusController.immune = true;
+        StartCoroutine(Dashing());
+    }
+
+    IEnumerator Dashing()
+    {
+        isDashing = true;
+
+        while (isDashing)
+        {
+            rigidbody.velocity = new Vector2(xDir * dashSpeed, rigidbody.velocity.y);
+            yield return null;
+        }
+
+        yield break;
+    }
+
+
+    public void StopDash()
+    {
+        playerStatusController.immune = false;
+        isDashing = false;
     }
 
     private void UpdateAnimation()

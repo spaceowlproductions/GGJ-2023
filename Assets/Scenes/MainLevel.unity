@@ -41583,6 +41583,14 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 31
       objectReference: {fileID: 0}
+    - target: {fileID: 5197696266132715522, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
+      propertyPath: dashSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5197696266394085338, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 585055277}
     - target: {fileID: 5601262930235347458, guid: e0f06e15703b04c459df3d6c61104c50, type: 3}
       propertyPath: m_RootOrder
       value: 0
