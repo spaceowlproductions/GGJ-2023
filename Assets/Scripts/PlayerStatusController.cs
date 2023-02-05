@@ -15,7 +15,7 @@ public class PlayerStatusController : MonoBehaviour
     Coroutine healthUITimeout;
     public Image healthBar;
 
-    bool dead;
+    public bool dead;
 
     public GameStateController gameController;
 
@@ -54,7 +54,8 @@ public class PlayerStatusController : MonoBehaviour
         GetComponentInParent<AudioSource>().PlayOneShot(AudioController.playerDeath[0]);
         dead = true;
 
-        //todo trigger animation here
+        //Trigger animation here
+        GetComponentInParent<Animator>().SetBool("IsDead", true);
 
         //Insert death stuff here!
         gameController.Restart(this);

@@ -7,12 +7,17 @@ public class CharacterScript : MonoBehaviour
 {
     private Rigidbody2D rigidbody;
     private Animator animator;
-    private float xDir = 0f;
     private SpriteRenderer sprite;
-    public GameObject weapon;
     private BoxCollider2D WeaponCol;
+    
+    public PlayerStatusController playerStatusController;
+    public GameObject weapon;
+
+    private float xDir = 0f;
     private float rightOffset = 0.6771092f;
     private float leftOffset = -0.6771092f;
+    private bool isDead;
+    private bool isGrounded;
 
     public AudioSource audioSource;
 
@@ -28,6 +33,16 @@ public class CharacterScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        // Check if player is dead. Disable movement if true
+        if (!playerStatusController.dead)
+        {
+            PlayerMovement();
+        }
+    }
+
+    private void PlayerMovement() 
+    {
         // Horizontal movement
         xDir = Input.GetAxisRaw("Horizontal");
         rigidbody.velocity = new Vector2(xDir * 5f, rigidbody.velocity.y);
@@ -40,7 +55,8 @@ public class CharacterScript : MonoBehaviour
             // Use Raycast to determine when to set IsJumping to true and false
         }
 
-        if (Input.GetMouseButtonDown(0)) // Attacking
+        // Attacking
+        if (Input.GetMouseButtonDown(0)) 
         {
             animator.SetTrigger("Attacking");
         }
@@ -54,12 +70,20 @@ public class CharacterScript : MonoBehaviour
         if (xDir > 0f) // Walking right
         {
             sprite.flipX = true;
+            if (!isGrounded)
+            {
+                animator.SetBool("IsWalking", false);
+            }
             animator.SetBool("IsWalking", true);
             WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
         }
         else if (xDir < 0f) // Walking left
         {
             sprite.flipX = false;
+            if (!isGrounded)
+            {
+                animator.SetBool("IsWalking", false);
+            }
             animator.SetBool("IsWalking", true);
             WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
         }
@@ -68,6 +92,7 @@ public class CharacterScript : MonoBehaviour
             animator.SetBool("IsWalking", false);
         }
     }
+
     public void PlayFootstepSound()
     {
         audioSource.PlayOneShot(AudioController.playerFootsteps[Random.Range(0, AudioController.playerFootsteps.Length)], .5f);
