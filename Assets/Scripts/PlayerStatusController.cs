@@ -19,6 +19,8 @@ public class PlayerStatusController : MonoBehaviour
 
     public GameStateController gameController;
 
+    public bool immune;
+
     void Awake()
     {
         fullHealth = health;
@@ -27,6 +29,7 @@ public class PlayerStatusController : MonoBehaviour
     public void Hit(float damage)
     {
         if (dead) { return; }
+        if (immune) { return; }
 
         health -= damage;
 

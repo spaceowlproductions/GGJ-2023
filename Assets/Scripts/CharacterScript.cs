@@ -10,9 +10,9 @@ public class CharacterScript : MonoBehaviour
     private SpriteRenderer sprite;
     private BoxCollider2D PlayerColl;
     [SerializeField] private LayerMask jumpableTerrain;
-    
+
     public PlayerStatusController playerStatusController;
-    
+
     public GameObject weapon;
     private BoxCollider2D WeaponCol;
 
@@ -22,6 +22,9 @@ public class CharacterScript : MonoBehaviour
     private bool running;
 
     public AudioSource audioSource;
+
+    public float dashSpeed;
+    bool isDashing;
 
     // Start is called before the first frame update
     void Start()
@@ -46,11 +49,11 @@ public class CharacterScript : MonoBehaviour
         }
     }
 
-    private void PlayerMovement() 
+    private void PlayerMovement()
     {
         // Horizontal movement
         xDir = Input.GetAxisRaw("Horizontal");
-        
+
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) // Running
         {
             if (isGrounded())
@@ -58,7 +61,8 @@ public class CharacterScript : MonoBehaviour
                 rigidbody.velocity = new Vector2(xDir * 10f, rigidbody.velocity.y);
                 running = true;
             }
-        } else // Walking
+        }
+        else // Walking
         {
             rigidbody.velocity = new Vector2(xDir * 5f, rigidbody.velocity.y);
             running = false;
@@ -71,12 +75,40 @@ public class CharacterScript : MonoBehaviour
         }
 
         // Attacking
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
             animator.SetTrigger("Attacking");
+            if (!isGrounded())
+                Dash();
         }
 
         UpdateAnimation();
+    }
+
+    public void Dash()
+    {
+        playerStatusController.immune = true;
+        StartCoroutine(Dashing());
+    }
+
+    IEnumerator Dashing()
+    {
+        isDashing = true;
+
+        while (isDashing)
+        {
+            rigidbody.velocity = new Vector2(xDir * dashSpeed, rigidbody.velocity.y);
+            yield return null;
+        }
+
+        yield break;
+    }
+
+
+    public void StopDash()
+    {
+        playerStatusController.immune = false;
+        isDashing = false;
     }
 
     private void UpdateAnimation()
@@ -88,7 +120,8 @@ public class CharacterScript : MonoBehaviour
             if (!isGrounded())
             {
                 animator.SetBool("IsWalking", false);
-            } else
+            }
+            else
             {
                 animator.SetBool("IsWalking", true);
             }
@@ -100,12 +133,14 @@ public class CharacterScript : MonoBehaviour
             if (!isGrounded())
             {
                 animator.SetBool("IsWalking", false);
-            } else
+            }
+            else
             {
                 animator.SetBool("IsWalking", true);
             }
             WeaponCol.offset = new Vector2(leftOffset, WeaponCol.offset.y);
-        } else if (xDir > 0f && running) // Run right
+        }
+        else if (xDir > 0f && running) // Run right
         {
             sprite.flipX = true;
             if (!isGrounded())
@@ -119,7 +154,8 @@ public class CharacterScript : MonoBehaviour
                 animator.SetBool("IsRunning", true);
             }
             WeaponCol.offset = new Vector2(rightOffset, WeaponCol.offset.y);
-        } else if (xDir < 0f && running) // Run left
+        }
+        else if (xDir < 0f && running) // Run left
         {
             sprite.flipX = false;
             if (!isGrounded())
