@@ -31,6 +31,8 @@ public class AudioController : MonoBehaviour
 
     public AudioClip[] Heal;
 
+    public AudioClip[] Ambience;
+
     public AudioClip[] Music;
 
 
@@ -62,6 +64,8 @@ public class AudioController : MonoBehaviour
 
     public static AudioClip[] music;
 
+    public static AudioClip[] ambience;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -79,5 +83,6 @@ public class AudioController : MonoBehaviour
         rootRepairComplete = RootRepairComplete;
         heal = Heal;
         music = Music;
+        ambience = Ambience;
     }
 }
