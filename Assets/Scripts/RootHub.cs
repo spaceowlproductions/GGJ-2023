@@ -22,6 +22,8 @@ public class RootHub : MonoBehaviour
 
     public Animator healUIAnim;
 
+    public GameStateController gameController;
+
 
     void Update()
     {
@@ -90,6 +92,8 @@ public class RootHub : MonoBehaviour
         healUIAnim.SetBool("Healing", false);
         uiAnim.SetBool("Open", false);
         uiAnim.SetBool("PlayerHeal", true);
+
+        gameController.lastSaveSpot = transform;
     }
 
     IEnumerator HealRootSequence()

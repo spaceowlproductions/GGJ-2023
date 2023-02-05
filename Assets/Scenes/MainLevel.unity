@@ -953,6 +953,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3929354791987067317, guid: a0cd75ab3a1204e03b84cbb92fff806c, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 585055277}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0cd75ab3a1204e03b84cbb92fff806c, type: 3}
 --- !u!1001 &607091523
@@ -1305,6 +1309,7 @@ MonoBehaviour:
   currentHub: {fileID: 0}
   uiAnim: {fileID: 1714253866}
   healthBar: {fileID: 305803350}
+  gameController: {fileID: 585055277}
 --- !u!70 &793803756
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -26682,6 +26687,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3929354791987067317, guid: a0cd75ab3a1204e03b84cbb92fff806c, type: 3}
+      propertyPath: gameController
+      value: 
+      objectReference: {fileID: 585055277}
     - target: {fileID: 4199130417594695795, guid: a0cd75ab3a1204e03b84cbb92fff806c, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1
