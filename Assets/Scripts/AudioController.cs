@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
-
+    
     public AudioClip[] AttackClips;
 
     public AudioClip[] MoveClips;
@@ -13,6 +13,8 @@ public class AudioController : MonoBehaviour
 
     public AudioClip[] HitClips;
 
+    public AudioClip[] LungeClips;
+
     public AudioClip[] PlayerFootsteps;
 
     public AudioClip[] PlayerAttack;
@@ -20,6 +22,16 @@ public class AudioController : MonoBehaviour
     public AudioClip[] PlayerHurt;
 
     public AudioClip[] PlayerDeath;
+
+    public AudioClip[] DamagedTreeLoop;
+
+    public AudioClip[] RootRepair;
+
+    public AudioClip[] RootRepairComplete;
+
+    public AudioClip[] Heal;
+
+    public AudioClip[] Music;
 
 
     public static AudioClip[] attackClips;
@@ -30,6 +42,8 @@ public class AudioController : MonoBehaviour
 
     public static AudioClip[] hitClips;
 
+    public static AudioClip[] lungeClips;
+
     public static AudioClip[] playerFootsteps;
 
     public static AudioClip[] playerAttack;
@@ -38,6 +52,15 @@ public class AudioController : MonoBehaviour
 
     public static AudioClip[] playerDeath;
 
+    public static AudioClip[] damagedTreeLoop;
+
+    public static AudioClip[] rootRepair;
+
+    public static AudioClip[] rootRepairComplete;
+
+    public static AudioClip[] heal;
+
+    public static AudioClip[] music;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,5 +73,11 @@ public class AudioController : MonoBehaviour
         playerHurt = PlayerHurt;
         playerDeath = PlayerDeath;
         hitClips = HitClips;
+        lungeClips = LungeClips;
+        damagedTreeLoop = DamagedTreeLoop;
+        rootRepair = RootRepair;
+        rootRepairComplete = RootRepairComplete;
+        heal = Heal;
+        music = Music;
     }
 }
