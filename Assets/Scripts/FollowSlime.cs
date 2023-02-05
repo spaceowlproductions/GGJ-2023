@@ -17,8 +17,6 @@ public class FollowSlime : MonsterController
 
         audioSource.clip = AudioController.moveClips[Random.Range(0, AudioController.moveClips.Length)];
         audioSource.Play();
-        audioSource.clip = AudioController.lungeClips[Random.Range(0, AudioController.moveClips.Length)];
-        audioSource.Play();
 
         StartCoroutine(AttackWait());
 
