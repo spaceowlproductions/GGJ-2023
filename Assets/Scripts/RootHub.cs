@@ -22,6 +22,12 @@ public class RootHub : MonoBehaviour
 
     public Animator healUIAnim;
 
+    public GameStateController gameController;
+
+    bool healUsed;
+
+    public SpriteRenderer sickness;
+
 
     void Update()
     {
@@ -32,7 +38,14 @@ public class RootHub : MonoBehaviour
                 if (infected)
                     healRoutine = StartCoroutine(HealRootSequence());
                 else if(!healed)
-                    playerStatusController.Heal();
+                {
+                    if(!healUsed)
+                    {
+                        playerStatusController.Heal();
+                        uiAnim.SetBool("PlayerHeal", false);
+                        healUsed = true;
+                    }
+                }
             }
 
             if (Input.GetKeyUp(KeyCode.E))
@@ -90,6 +103,8 @@ public class RootHub : MonoBehaviour
         healUIAnim.SetBool("Healing", false);
         uiAnim.SetBool("Open", false);
         uiAnim.SetBool("PlayerHeal", true);
+
+        gameController.lastSaveSpot = transform;
     }
 
     IEnumerator HealRootSequence()
@@ -107,8 +122,26 @@ public class RootHub : MonoBehaviour
         }
 
         RootHealingFinished();
-
+        StartCoroutine(SickHealAnim());
         yield break;
     }
+
+    IEnumerator SickHealAnim()
+    {
+        float elapsedTime = 0f;
+
+        Color transparent = new Color(sickness.color.r, sickness.color.g, sickness.color.b, 0f);
+
+        while (elapsedTime < 3f)
+        {
+            sickness.color = Color.Lerp(sickness.color, transparent, elapsedTime / 3f);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        sickness.color = transparent;
+        yield break;
+    }
+
 
 }

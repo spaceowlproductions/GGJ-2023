@@ -17,6 +17,8 @@ public class PlayerStatusController : MonoBehaviour
 
     bool dead;
 
+    public GameStateController gameController;
+
     void Awake()
     {
         fullHealth = health;
@@ -49,10 +51,13 @@ public class PlayerStatusController : MonoBehaviour
     public void Die()
     {
         //GameStateController.ActivateDeathScreen();
-        GetComponent<AudioSource>().PlayOneShot(AudioController.playerDeath[0]);
+        GetComponentInParent<AudioSource>().PlayOneShot(AudioController.playerDeath[0]);
         dead = true;
-        //Insert death stuff here!
 
+        //todo trigger animation here
+
+        //Insert death stuff here!
+        gameController.Restart(this);
     }
 
     public void Heal()

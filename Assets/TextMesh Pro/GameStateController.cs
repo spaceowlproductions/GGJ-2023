@@ -20,31 +20,31 @@ public class GameStateController : MonoBehaviour
         WinScreen = winScreen;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public static void ActivateDeathScreen()
+    public void ActivateDeathScreen()
     {
         DeathScreen.SetActive(true);
     }
 
-    public static void ActivateWinScreen()
+    public void ActivateWinScreen()
     {
         WinScreen.SetActive(true);
     }
 
-
-    public void Restart(PlayerStatusController player)
+    public IEnumerator RestartWait(PlayerStatusController player)
     {
+        yield return new WaitForSeconds(3);
+
         if (lastSaveSpot == null)
             SceneManager.LoadScene(0);
         else
         {
-            player.transform.position = lastSaveSpot.position;
+            player.transform.parent.position = lastSaveSpot.position;
             player.Heal();
         }
+    }
+
+    public void Restart(PlayerStatusController player)
+    {
+        StartCoroutine(RestartWait(player));
     }
 }
