@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   infected: 1
   healed: 0
-  healHoldTimer: 10
+  healHoldTimer: 5
   uiAnim: {fileID: 3370768275944575597}
   infectionHealBar: {fileID: 7586799424190472042}
   healUIAnim: {fileID: 3969464985730612360}
