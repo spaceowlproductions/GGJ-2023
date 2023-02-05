@@ -11,6 +11,8 @@ public class AudioController : MonoBehaviour
 
     public AudioClip[] DeathClips;
 
+    public AudioClip[] HitClips;
+
     public AudioClip[] PlayerFootsteps;
 
     public AudioClip[] PlayerAttack;
@@ -26,6 +28,8 @@ public class AudioController : MonoBehaviour
 
     public static AudioClip[] deathClips;
 
+    public static AudioClip[] hitClips;
+
     public static AudioClip[] playerFootsteps;
 
     public static AudioClip[] playerAttack;
@@ -33,6 +37,7 @@ public class AudioController : MonoBehaviour
     public static AudioClip[] playerHurt;
 
     public static AudioClip[] playerDeath;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -44,11 +49,6 @@ public class AudioController : MonoBehaviour
         playerAttack = PlayerAttack;
         playerHurt = PlayerHurt;
         playerDeath = PlayerDeath;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        hitClips = HitClips;
     }
 }

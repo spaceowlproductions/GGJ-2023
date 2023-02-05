@@ -38,8 +38,30 @@ public class PlayerStatusController : MonoBehaviour
 
     public void Heal()
     {
-        health = fullHealth;
-        healthBar.fillAmount = health;
+        uiAnim.SetBool("Open", true);
+
+        if (healthUITimeout != null)
+            StopCoroutine(healthUITimeout);
+
+        healthUITimeout = StartCoroutine(HealthUITimeout());
+
+        StartCoroutine(HealAnim());
+    }
+
+    IEnumerator HealAnim()
+    {
+        float elapsedTime = 0f;
+        float timer = 5f;
+
+        float originalHealth = health;
+
+        while(elapsedTime < timer)
+        {
+            elapsedTime += Time.deltaTime;
+            health = Mathf.Lerp(originalHealth, fullHealth, elapsedTime / timer);
+            healthBar.fillAmount = health;
+            yield return null;
+        }
     }
 
     IEnumerator HealthUITimeout()

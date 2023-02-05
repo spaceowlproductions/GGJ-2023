@@ -204,7 +204,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.218
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1756,6 +1756,7 @@ MonoBehaviour:
   hitDamage: 10
   uiAnim: {fileID: 6524166848027238748}
   healthBar: {fileID: 619937145849975224}
+  audioSource: {fileID: 1250589669767126834}
 --- !u!58 &1383379653233958273
 CircleCollider2D:
   m_ObjectHideFlags: 0

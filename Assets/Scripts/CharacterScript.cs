@@ -70,18 +70,21 @@ public class CharacterScript : MonoBehaviour
     }
     public void PlayFootstepSound()
     {
-        audioSource.clip = AudioController.playerFootsteps[Random.Range(0,AudioController.playerFootsteps.Length)];
+        audioSource.PlayOneShot(AudioController.playerFootsteps[Random.Range(0, AudioController.playerFootsteps.Length)], .5f);
     }
     public void PlayAttackSound()
     {
         audioSource.clip = AudioController.playerAttack[Random.Range(0, AudioController.playerAttack.Length)];
+        audioSource.Play();
     }
     public void PlayHurtSound()
     {
         audioSource.clip = AudioController.playerHurt[Random.Range(0, AudioController.playerHurt.Length)];
+        audioSource.Play();
     }
     public void PlayDeathSound()
     {
         audioSource.clip = AudioController.playerDeath[Random.Range(0, AudioController.playerDeath.Length)];
+        audioSource.Play();
     }
 }

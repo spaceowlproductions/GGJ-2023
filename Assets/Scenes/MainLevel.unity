@@ -635,6 +635,24 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3c63c2b6f03344a12be779b2f1fe1da9, type: 3}
   - {fileID: 8300000, guid: 78b3b0008c47f45698ef52400ab071b2, type: 3}
   - {fileID: 8300000, guid: 1c48bae6822194f45a3f740787949bed, type: 3}
+  HitClips:
+  - {fileID: 8300000, guid: a3fcea73b023b4f78bac4a823a247e02, type: 3}
+  - {fileID: 8300000, guid: 03a2e1c5876f347b38bb72724b1be30d, type: 3}
+  - {fileID: 8300000, guid: 4f4550b7237d7444789b4f8e21e52fdf, type: 3}
+  PlayerFootsteps:
+  - {fileID: 8300000, guid: 131766a7143fc447abefe8beb60e3089, type: 3}
+  - {fileID: 8300000, guid: bd602737f6ad34fffae6598f11c89ff7, type: 3}
+  - {fileID: 8300000, guid: 15ef5a46349554d50af272d5be190aed, type: 3}
+  PlayerAttack:
+  - {fileID: 8300000, guid: 0bca14f7758f74f0c92ecec43b00d00a, type: 3}
+  - {fileID: 8300000, guid: 57a6c3e46c6084283bfa20c2c0f0f1b9, type: 3}
+  - {fileID: 8300000, guid: 60c77a8722e98469495f4b689b98aea9, type: 3}
+  PlayerHurt:
+  - {fileID: 8300000, guid: 97aab2c5f7ffc460fa5410a157a4b985, type: 3}
+  - {fileID: 8300000, guid: 375a86148278b410080e8c72c0a11f03, type: 3}
+  - {fileID: 8300000, guid: ddd60be086621456e937127e2f0eea2d, type: 3}
+  PlayerDeath:
+  - {fileID: 8300000, guid: 97ee9f436a7014fc0a3844c1b5462144, type: 3}
 --- !u!1 &1053715495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1841,13 +1859,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 6634328180103190037, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
+      propertyPath: footstepVolume
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6634328180103190040, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -65.65
+      value: -64.1
       objectReference: {fileID: 0}
     - target: {fileID: 6634328180103190040, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
       propertyPath: m_LocalPosition.y
       value: -3.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 7875066328019033849, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
@@ -2087,7 +2113,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1618200950
 PrefabInstance:

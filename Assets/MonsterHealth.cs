@@ -15,6 +15,8 @@ public class MonsterHealth : MonoBehaviour
     Coroutine healthUITimeout;
     public Image healthBar;
 
+    public AudioSource audioSource;
+
     private void Awake()
     {
         fullHealth = health;
@@ -30,7 +32,12 @@ public class MonsterHealth : MonoBehaviour
 
             if (health <= 0)
             {
+                collision.transform.parent.GetComponent<AudioSource>().PlayOneShot(AudioController.deathClips[Random.Range(0, AudioController.deathClips.Length)], audioSource.volume);
                 Die();
+            }
+            else
+            {
+                audioSource.PlayOneShot(AudioController.hitClips[Random.Range(0, AudioController.hitClips.Length)]);
             }
 
             uiAnim.SetBool("Open", true);

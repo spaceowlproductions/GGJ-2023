@@ -630,6 +630,7 @@ MonoBehaviour:
   hitDamage: 10
   uiAnim: {fileID: 466401416105608493}
   healthBar: {fileID: 6082383150221686217}
+  audioSource: {fileID: 1446148947599151499}
 --- !u!1 &5151772782581363940
 GameObject:
   m_ObjectHideFlags: 0
