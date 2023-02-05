@@ -1754,32 +1754,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5151772782581363942, guid: 01217fc7cfec5423b8f41bc168d5c64f, type: 3}
   m_PrefabInstance: {fileID: 1330281435}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1392408825 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7598430895044547369, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
-  m_PrefabInstance: {fileID: 1466135488}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &1392408828
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392408825}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &1466135488
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1866,6 +1840,14 @@ PrefabInstance:
     - target: {fileID: 5658140190017385390, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634328180103190040, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -65.65
+      objectReference: {fileID: 0}
+    - target: {fileID: 6634328180103190040, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.17
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1ab2ca9e433d884bba4fda4ab2a1a9e, type: 3}
@@ -2105,7 +2087,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1618200950
 PrefabInstance:
