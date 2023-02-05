@@ -1,0 +1,8 @@
+CREDITS
+
+Route of Healing was created for the 2023 Global Game Jam hosted at Purdue Fort Wayne
+
+Kurt -- program lead and enemy design
+Noah -- sound design
+Tarun -- player design and controls programming
+Sean -- level design and build support
