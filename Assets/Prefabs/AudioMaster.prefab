@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2104759690057427775
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2104759690057427774}
+  - component: {fileID: 2104759690057427772}
+  m_Layer: 0
+  m_Name: AudioMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2104759690057427774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104759690057427775}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2104759690057427772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104759690057427775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfa7a31719321404f82bc1b97ab5e68a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackClips:
+  - {fileID: 8300000, guid: 315e30a3fb6c741b8bf85cdd0bf32eb1, type: 3}
+  - {fileID: 8300000, guid: 284cc83490d304ce2beff31240381c06, type: 3}
+  - {fileID: 8300000, guid: bcbbef181d2e14960aefe2e15b8f42d9, type: 3}
+  MoveClips:
+  - {fileID: 8300000, guid: d2f1645433b5244f49caf415425fd354, type: 3}
+  - {fileID: 8300000, guid: 50bb197612be448cb8cb6cd923764f77, type: 3}
+  - {fileID: 8300000, guid: 1ad6b6140e865405cb4e958175c0fb6b, type: 3}
+  DeathClips:
+  - {fileID: 8300000, guid: 3c63c2b6f03344a12be779b2f1fe1da9, type: 3}
+  - {fileID: 8300000, guid: 78b3b0008c47f45698ef52400ab071b2, type: 3}
+  - {fileID: 8300000, guid: 1c48bae6822194f45a3f740787949bed, type: 3}
+  HitClips:
+  - {fileID: 8300000, guid: a3fcea73b023b4f78bac4a823a247e02, type: 3}
+  - {fileID: 8300000, guid: 03a2e1c5876f347b38bb72724b1be30d, type: 3}
+  - {fileID: 8300000, guid: 4f4550b7237d7444789b4f8e21e52fdf, type: 3}
+  LungeClips:
+  - {fileID: 8300000, guid: e94bea97b999d4c3d9ed69c32f96b687, type: 3}
+  - {fileID: 8300000, guid: ee22020c9879743ed80d1b6bdf4731f2, type: 3}
+  - {fileID: 8300000, guid: 3469d9967df15441cb5642bf96e44fab, type: 3}
+  PlayerFootsteps:
+  - {fileID: 8300000, guid: 131766a7143fc447abefe8beb60e3089, type: 3}
+  - {fileID: 8300000, guid: bd602737f6ad34fffae6598f11c89ff7, type: 3}
+  - {fileID: 8300000, guid: 15ef5a46349554d50af272d5be190aed, type: 3}
+  PlayerAttack:
+  - {fileID: 8300000, guid: 0bca14f7758f74f0c92ecec43b00d00a, type: 3}
+  - {fileID: 8300000, guid: 57a6c3e46c6084283bfa20c2c0f0f1b9, type: 3}
+  - {fileID: 8300000, guid: 60c77a8722e98469495f4b689b98aea9, type: 3}
+  PlayerHurt:
+  - {fileID: 8300000, guid: 97aab2c5f7ffc460fa5410a157a4b985, type: 3}
+  - {fileID: 8300000, guid: 375a86148278b410080e8c72c0a11f03, type: 3}
+  - {fileID: 8300000, guid: ddd60be086621456e937127e2f0eea2d, type: 3}
+  PlayerDeath:
+  - {fileID: 8300000, guid: 97ee9f436a7014fc0a3844c1b5462144, type: 3}
+  DamagedTreeLoop:
+  - {fileID: 8300000, guid: c09ee7ef76a2840b794ba031853f1f9e, type: 3}
+  RootRepair:
+  - {fileID: 8300000, guid: a99846195a85f4174b59e0ecd3f97a96, type: 3}
+  RootRepairComplete:
+  - {fileID: 8300000, guid: 624da020a59814a9b833c4d42f768ee7, type: 3}
+  Heal:
+  - {fileID: 8300000, guid: 276e813da83cd484793d09e43fe7b16f, type: 3}
